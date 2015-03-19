@@ -4,8 +4,9 @@ public:
         sort(num.begin(), num.end());
         int n = num.size();
         vector <vector<int> > result;
-        int last[2] = {0};
-        for (int i = 0; i < n-2; ++i)
+        if (num.size() < 3) return result;
+        int i = 0;
+        while (i < n-2)
         {
             int j = i+1;
             int k = n-1;
@@ -13,24 +14,25 @@ public:
             {
                 if (num[i] + num[j] + num[k] == 0)
                 {
-                    if (last[0] != num[i] && last[1] != num[j])
-                    {
-                        result.push_back({num[i], num[j], num[k]});
-                        last[0] = num[i];
-                        last[1] = num[j];
-                        ++j;
-                        --k;
-                    }
+                    result.push_back({num[i], num[j], num[k]});
+                    ++j;
+                    --k;
+                    while (j < k && num[j] == num[j-1]) j++;
+                    while (j < k && num[k] == num[k+1]) k--;
                 }
                 else if (num[i]+ num[j] + num[k] < 0)
                 {
                     ++j;
+                    while (j < k && num[j] == num[j-1]) j++;
                 }
                 else 
                 {
                     --k;
+                     while (j < k && num[k] == num[k+1]) k--;
                 }
             }
+            ++i;
+            while (i < n-2 && num[i] == num[i-1]) i++;
         }
         return result;
     }
