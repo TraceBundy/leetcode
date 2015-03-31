@@ -8,3 +8,4 @@ int searchInsert(int A[], int n, int target) {
     return i;
     }
 };
+
