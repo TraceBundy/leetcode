@@ -23,3 +23,4 @@ public:
         }
     }
 };
+SET SESSION max_statement_time =
