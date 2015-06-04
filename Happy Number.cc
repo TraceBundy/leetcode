@@ -17,6 +17,7 @@ public:
         }
         
     }
+
     int sum(vector<int> &res){
        int sum = 0;
        for (int i = 0; i < res.size(); ++i){
@@ -24,6 +25,7 @@ public:
        }
        return sum;
     }
+
     void splitNum(int n, vector<int> &res){
         while (n){
             int i = n % 10;
@@ -31,6 +33,7 @@ public:
             n /= 10;
         }
     }
+
     bool isExist(set<int> &num, int n){
         return num.find(n) != num.end();
     }
